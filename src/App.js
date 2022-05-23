@@ -5,6 +5,7 @@ import Register from "./pages/Register/Register";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Rental from "./pages/Rental/Rental";
+import ListCar from "./pages/ListCar/ListCar";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route index element={<Rental />} />
             <Route path="dashboard" element={<Home />} />
+            <Route path="listcar" element={<ListCar />} />
           </Route>
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />

@@ -10,11 +10,14 @@ export default function Navbar({ logout }) {
         <nav className="navbar navbar-expand-lg border-bottom ms-5">
           <div className="container-fluid">
             <div className="sidebar-toggler ps-5">
-              <a href="#">
-                <img className="ms-5 me-5 collapseSidebar" src={Rectangle2} />
-              </a>
+              <img
+                className="ms-5 me-5 collapseSidebar"
+                src={Rectangle2}
+                alt=""
+              />
+
               <button className="btn ms-5" id="toggleSidebar">
-                <img src={Menu} />
+                <img src={Menu} alt="" />
               </button>
             </div>
 
@@ -41,11 +44,12 @@ export default function Navbar({ logout }) {
                       type="search"
                       placeholder="Search"
                       aria-label="Search"
+                      style={{ maxHeight: "40px" }}
                     />
                     <button
                       className="btn btn-outline-primary border-2 me-4 fw-bold"
                       type="submit"
-                      style={{ width: "80px" }}
+                      style={{ width: "80px", height: "40px" }}
                     >
                       Search
                     </button>
@@ -53,7 +57,7 @@ export default function Navbar({ logout }) {
                 </li>
                 <li className="nav-item">
                   <div className="dropdown">
-                    <a
+                    <span
                       onClick={logout}
                       className="d-flex flex-row justify-content-center align-items-center link-dark text-decoration-none dropdown-toggle me-2"
                       id="dropdownUser"
@@ -66,18 +70,17 @@ export default function Navbar({ logout }) {
                         height="32"
                         className="rounded-circle me-2"
                         style={{ objectFit: "cover" }}
+                        alt=""
                       />
                       <p className="my-0 me-2" style={{ cursor: "pointer" }}>
                         Logout
                       </p>
-                    </a>
+                    </span>
                     <ul
                       className="dropdown-menu text-small shadow"
                       aria-labelledby="dropdownUser"
                     >
-                      <li>
-                        <a className="dropdown-item">Log Out</a>
-                      </li>
+                      <li>{/* <a className="dropdown-item">Log Out</a> */}</li>
                     </ul>
                   </div>
                 </li>

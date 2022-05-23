@@ -26,7 +26,7 @@ export default function Register() {
     if (localStorage.getItem("access_token")) {
       navigate("/");
     }
-  }, []);
+  });
 
   const handleSubmit = async () => {
     try {

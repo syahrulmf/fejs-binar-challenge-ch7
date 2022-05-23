@@ -14,7 +14,7 @@ export default function Home() {
     if (!token) {
       window.location.href = "/register";
     }
-  }, []);
+  });
 
   if (!token) {
     return <div>Loading...</div>;
@@ -31,16 +31,13 @@ export default function Home() {
 
         <Sidebar />
 
-        {/* <!-- BAGIAN ISI CONTENT DI MULAI DARI SINI --> */}
         <section className="content-section ps-5 pe-4">
           <div className="row">
             <div className="col-lg-0" id="show-col-lg-0">
               <div className="adding-space" style={{ width: "300px" }}></div>
             </div>
             <div className="col-lg-12" id="show-col-lg-12">
-              {/* <!-- -------------------------- -->
-            <!-- COPY DISINI ISI CONTENTNYA -->
-            <!-- -------------------------- --> */}
+              {/* Content */}
 
               <div className="container mt-5">
                 <h2>Dashboard</h2>
@@ -164,90 +161,10 @@ export default function Home() {
                     </tr>
                   </tbody>
                 </table>
-                <div className="bottom">
-                  <div className="row">
-                    <p className="limit col-lg-1 col-md-2">Limit</p>
-                    <p className="tjtp col-lg-2 col-md-2">Jump to page</p>
-                  </div>
-                  <div className="row">
-                    <div className="drop col-lg-1 col-md-2 col-12">
-                      <select
-                        className="form-select"
-                        aria-label="Default select example"
-                      >
-                        <option>10</option>
-                        <option>10</option>
-                        <option>20</option>
-                        <option>40</option>
-                      </select>
-                    </div>
-                    <div className="jtp col-lg-4 col-md-4 col-12">
-                      <select
-                        className="form-select"
-                        aria-label="Default select example"
-                      >
-                        <option>1</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                      </select>
-                      <button type="button" className="btn btn-go">
-                        Go
-                      </button>
-                    </div>
-                    <div className="paging col-lg-7 col-md-6 col-12 justify-content-end">
-                      <nav aria-label="Page navigation example">
-                        <ul className="pagination">
-                          <li className="page-item">
-                            <a
-                              className="page-link"
-                              href="#"
-                              aria-label="Previous"
-                            >
-                              <span aria-hidden="true">&laquo;</span>
-                            </a>
-                          </li>
-                          <li className="page-item active">
-                            <a className="page-link" href="#">
-                              1
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              2
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              3
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              ...
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              9
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </nav>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </section>
-        {/* <!-- BAGIAN ISI CONTENT BERAKHIR Di SINI -->
-<!-- CONTENT SECTION END --> */}
       </div>
     </>
   );
