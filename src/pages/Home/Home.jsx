@@ -1,33 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import FI from "../../assets/images/icon/fi.png";
 import Sort from "../../assets/images/icon/fi_sort.png";
 import "./Home.css";
-import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const token = localStorage.getItem("access_token");
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!token) {
-      window.location.href = "/register";
-    }
-  });
-
-  if (!token) {
-    return <div>Loading...</div>;
-  }
-
-  const handleLogout = () => {
-    localStorage.removeItem("access_token");
-    navigate("/register", { replace: true });
-  };
   return (
     <>
       <div className="container-fluid p-0">
-        <Navbar logout={() => handleLogout()} />
+        <Navbar />
 
         <Sidebar />
 

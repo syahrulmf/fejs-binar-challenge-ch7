@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import car from "../../assets/images/fi_car.png";
@@ -12,27 +12,10 @@ import fi_edit from "../../assets/images/icon/fi_edit.png";
 import "./ListCar.css";
 
 const ListCar = () => {
-  const token = localStorage.getItem("access_token");
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!token) {
-      window.location.href = "/register";
-    }
-  });
-
-  if (!token) {
-    return <div>Loading...</div>;
-  }
-
-  const handleLogout = () => {
-    localStorage.removeItem("access_token");
-    navigate("/register", { replace: true });
-  };
   return (
     <>
       <div className="container-fluid p-0">
-        <Navbar logout={() => handleLogout()} />
+        <Navbar />
 
         <Sidebar />
 
@@ -47,9 +30,9 @@ const ListCar = () => {
                 <div class="list-button">
                   <span class="list-car">List Car</span>
                   <div class="button-right">
-                    <button type="button" class="btn btn-primary">
+                    <Link to={"/add_car"} class="btn btn-add">
                       <img src={fi_plus} alt="icon-plus" /> Add New Car
-                    </button>
+                    </Link>
                   </div>
                 </div>
                 <div class="btn-group" aria-label="Basic example">

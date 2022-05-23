@@ -2,8 +2,15 @@ import React from "react";
 import Rectangle2 from "../../assets/images/icon/Rectangle 62.png";
 import Menu from "../../assets/images/icon/fi_menu.png";
 import User from "../../assets/images/icon/Group 15.png";
+import { useNavigate } from "react-router-dom";
 
-export default function Navbar({ logout }) {
+export default function Navbar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    navigate("/register", { replace: true });
+  };
   return (
     <>
       <section className="navbar-section">
@@ -58,7 +65,7 @@ export default function Navbar({ logout }) {
                 <li className="nav-item">
                   <div className="dropdown">
                     <span
-                      onClick={logout}
+                      onClick={handleLogout}
                       className="d-flex flex-row justify-content-center align-items-center link-dark text-decoration-none dropdown-toggle me-2"
                       id="dropdownUser"
                       data-bs-toggle="dropdown"

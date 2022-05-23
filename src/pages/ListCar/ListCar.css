@@ -39,16 +39,21 @@ span.list-car {
   margin-top: 27px;
 }
 
-.btn.btn-primary {
+.btn-add {
   background-color: #0d28a6;
   border-radius: 2px;
   font-weight: 700;
   font-size: 14px;
   height: 36px;
   width: 142px;
+  color: white;
 }
 
-.btn.btn-outline-primary {
+.btn-add:hover {
+  color: whitesmoke !important;
+}
+
+.btn-outline-primary {
   border: 1px solid #aeb7e1;
   color: #aeb7e1;
   border-radius: 2px;
@@ -58,7 +63,7 @@ span.list-car {
   width: auto;
 }
 
-.btn.btn-outline-primary:hover {
+.btn-outline-primary:hover {
   color: #0d28a6;
   background-color: #cfd4ed;
 }
@@ -121,7 +126,7 @@ span.list-car {
   padding: 8px 12px;
 }
 
-.btn.btn.btn-success:hover {
+.btn.btn-success:hover {
   background-color: #5cb85f;
   color: white;
 }

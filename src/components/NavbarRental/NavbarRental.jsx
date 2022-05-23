@@ -1,8 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 import "./NavbarRental.css";
 
-function NavbarRental({ logout }) {
+function NavbarRental() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    navigate("/register", { replace: true });
+  };
   return (
     <>
       <nav
@@ -49,7 +56,7 @@ function NavbarRental({ logout }) {
               <li className="nav-item">
                 <a
                   className="nav-link btn btn-sm btn-register"
-                  onClick={logout}
+                  onClick={handleLogout}
                 >
                   Logout
                 </a>

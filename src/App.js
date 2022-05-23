@@ -6,6 +6,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Rental from "./pages/Rental/Rental";
 import ListCar from "./pages/ListCar/ListCar";
+import AddCar from "./pages/AddCar/AddCar";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route index element={<Rental />} />
             <Route path="dashboard" element={<Home />} />
             <Route path="listcar" element={<ListCar />} />
+            <Route path="add_car" element={<AddCar />} />
           </Route>
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
