@@ -8,6 +8,7 @@ import FooterRental from "../../components/FooterRental/FooterRental";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ModalImage from "react-modal-image";
+import ReactPlayer from "react-player";
 
 const Detail = () => {
   const [dataDetail, setDataDetail] = useState([]);
@@ -95,6 +96,12 @@ const Detail = () => {
                             <p>
                               <strong>Tentang Paket</strong>
                             </p>
+                            <div className="react-player">
+                              <ReactPlayer
+                                url="https://www.youtube.com/watch?v=ryw7AfmCavc"
+                                width="530px"
+                              />
+                            </div>
                           </div>
                           <div class="card-body">
                             <p>Include</p>
