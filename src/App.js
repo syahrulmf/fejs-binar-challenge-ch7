@@ -8,6 +8,7 @@ import Rental from "./pages/Rental/Rental";
 import ListCar from "./pages/ListCar/ListCar";
 import AddCar from "./pages/AddCar/AddCar";
 import Detail from "./pages/Detail/Detail";
+import Invoice from "./pages/Invoice/Invoice";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="listcar" element={<ListCar />} />
             <Route path="add_car" element={<AddCar />} />
             <Route path="detail/:id" element={<Detail />} />
+            <Route path="invoice" element={<Invoice />} />
           </Route>
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />

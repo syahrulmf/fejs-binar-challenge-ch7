@@ -76,7 +76,14 @@ const ListCar = () => {
                         <div className="card" key={item.id}>
                           <div className="card-body">
                             <h5 className="card-title">
-                              <img src={item.image} alt="img-car" />
+                              <img
+                                src={item.image}
+                                alt="img-car"
+                                style={{
+                                  maxWidth: "300px",
+                                  maxHeight: "190px",
+                                }}
+                              />
                             </h5>
                             <p>{item.name}</p>
                             <h6>Rp {item.price} / hari</h6>

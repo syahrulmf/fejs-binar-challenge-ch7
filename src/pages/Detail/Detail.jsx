@@ -5,7 +5,7 @@ import iconCalendar from "../../assets/images/icon/fi_calendar.svg";
 import "./Detail.css";
 import NavbarRental from "../../components/NavbarRental/NavbarRental";
 import FooterRental from "../../components/FooterRental/FooterRental";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import ModalImage from "react-modal-image";
 import ReactPlayer from "react-player";
@@ -14,6 +14,7 @@ const Detail = () => {
   const [dataDetail, setDataDetail] = useState([]);
   const [open, setOpen] = useState(false);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     handleDetail();
@@ -204,7 +205,11 @@ const Detail = () => {
                                 <strong>Rp.{dataDetail.price}</strong>
                               </span>
                             </p>
-                            <button type="button" class="btn btn-lanjut">
+                            <button
+                              type="button"
+                              class="btn btn-lanjut"
+                              onClick={() => navigate("/invoice")}
+                            >
                               Lanjutkan Pembayaran
                             </button>
                           </div>
