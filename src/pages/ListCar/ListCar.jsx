@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import fi_plus from "../../assets/images/icon/fi_plus.png";
@@ -11,10 +11,15 @@ import axios from "axios";
 
 const ListCar = () => {
   const [listData, setListData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getCar();
   }, []);
+
+  const handleDetail = (id) => {
+    navigate(`/detail/${id}`);
+  };
 
   const getCar = async () => {
     try {
@@ -87,9 +92,12 @@ const ListCar = () => {
                               className="btn-group"
                               aria-label="Basic example"
                             >
-                              <Link to={"/"} className="btn btn-detail">
+                              <button
+                                className="btn btn-detail"
+                                onClick={() => handleDetail(item.id)}
+                              >
                                 Detail
-                              </Link>
+                              </button>
                             </div>
                           </div>
                           {/* card */}

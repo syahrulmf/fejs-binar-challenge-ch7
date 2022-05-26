@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Rental from "./pages/Rental/Rental";
 import ListCar from "./pages/ListCar/ListCar";
 import AddCar from "./pages/AddCar/AddCar";
+import Detail from "./pages/Detail/Detail";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="dashboard" element={<Home />} />
             <Route path="listcar" element={<ListCar />} />
             <Route path="add_car" element={<AddCar />} />
+            <Route path="detail/:id" element={<Detail />} />
           </Route>
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
