@@ -104,29 +104,14 @@ span.list-car {
   padding-right: 9.5px;
 }
 
-.btn.btn-danger {
-  width: 143.5px;
-  height: 48px;
-  background-color: white;
-  color: red;
-  font-weight: 700;
-  padding: 8px 12px;
-  margin-right: 16px;
-}
-.btn.btn-danger:hover {
-  background-color: white;
-  color: red;
-}
-.btn.btn-success {
-  width: 143.5px;
-  height: 48px;
-  background-color: #5cb85f;
+.btn-detail {
+  background-color: rgb(40, 207, 40);
+  border-radius: 5px;
   color: white;
-  font-weight: 700;
-  padding: 8px 12px;
+  width: 300px;
 }
 
-.btn.btn-success:hover {
-  background-color: #5cb85f;
-  color: white;
+.btn-detail:hover {
+  color: white !important;
+  background-color: rgb(70, 247, 70);
 }
