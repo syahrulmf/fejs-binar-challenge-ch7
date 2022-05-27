@@ -17,7 +17,7 @@ export default function Register() {
   const navigate = useNavigate();
 
   const responseGoogle = (response) => {
-    // console.log(response);
+    console.log(response);
     localStorage.setItem("access_token", response.tokenObj.id_token);
     navigate("/", { replace: true });
   };
