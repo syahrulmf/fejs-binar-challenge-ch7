@@ -1,9 +1,45 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import ImageUpoad from "../../components/ImageUpload/ImageUpoad";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import "./AddCar.css";
 
 const AddCar = () => {
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState(0);
+  const [image, setImage] = useState("");
+  const [category, setCategory] = useState("");
+  const [status, setStatus] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = new FormData();
+    data.append("name", name);
+    data.append("price", price);
+    data.append("image", image);
+    data.append("status", status);
+    data.append("category", category);
+
+    try {
+      const res = await axios.post(
+        "https://rent-car-appx.herokuapp.com/admin/car",
+        data,
+        {
+          headers: {
+            "content--type": "multipart/formdata",
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+
+    navigate("/listcar", alert("Data Berhasil Ditambah"));
+  };
   return (
     <>
       <div className="container-fluid p-0">
@@ -36,8 +72,9 @@ const AddCar = () => {
                         </a>
                       </div>
                       <h2>Add New Car</h2>
+                      {/* form */}
                       <div className="form-body mb-3">
-                        <form>
+                        <form onSubmit={(e) => handleSubmit(e)}>
                           <div className="row">
                             <div className="col-lg-3">
                               <label
@@ -53,9 +90,11 @@ const AddCar = () => {
                             <div className="col-lg-9">
                               <input
                                 type="text"
+                                name="name"
                                 id="inputNama6"
                                 className="form-control"
                                 placeholder="Nama"
+                                onChange={(e) => setName(e.target.value)}
                               />
                               <small
                                 id="namaHelp"
@@ -79,9 +118,44 @@ const AddCar = () => {
                             <div className="col-lg-9">
                               <input
                                 type="text"
+                                name="price"
                                 id="inputHarga6"
                                 className="form-control"
                                 placeholder="Harga"
+                                onChange={(e) => setPrice(e.target.value)}
+                              />
+                              <small
+                                id="hargaHelp"
+                                className="form-text text-muted"
+                              ></small>
+                            </div>
+                          </div>
+
+                          {/* img */}
+                          <ImageUpoad
+                            onChange={(e) => setImage(e.target.files[0])}
+                          />
+
+                          <div className="row">
+                            <div className="col-lg-3">
+                              <label
+                                htmlFor="inputPassword6"
+                                className="col-form-label"
+                              >
+                                Kategori
+                              </label>
+                              <label htmlFor="wajib" sstyle={{ color: "red" }}>
+                                *
+                              </label>
+                            </div>
+                            <div className="col-lg-9">
+                              <input
+                                type="text"
+                                name="category"
+                                id="inputHarga6"
+                                className="form-control"
+                                placeholder="Kapasitas Mobil"
+                                onChange={(e) => setCategory(e.target.value)}
                               />
                               <small
                                 id="hargaHelp"
@@ -93,111 +167,42 @@ const AddCar = () => {
                           <div className="row">
                             <div className="col-lg-3">
                               <label
-                                htmlFor="inputFoto6"
-                                className="col-form-label"
-                              >
-                                Foto
-                              </label>
-                              <label htmlFor="wajib" style={{ color: "red" }}>
-                                *
-                              </label>
-                            </div>
-                            <div className="col-lg-9">
-                              <div className="input-group">
-                                <input
-                                  className="form-control"
-                                  type="file"
-                                  id="formFile"
-                                  style={{ display: "none" }}
-                                />
-                                <label
-                                  htmlFor="formFile"
-                                  id="file-input"
-                                  className="form-control icon text-secondary"
-                                >
-                                  No file selected
-                                </label>
-                                <span className="input-group-text">
-                                  <img src="images/icon/fi_upload.png" />
-                                </span>
-                              </div>
-                              <small
-                                id="fileHelp"
-                                className="form-text text-muted"
-                                style={{ marginLeft: "1px" }}
-                              >
-                                File size max. 2 MB
-                              </small>
-                            </div>
-                          </div>
-
-                          <div className="row">
-                            <div className="col-lg-3">
-                              <label
-                                htmlFor="inputStartRent6"
-                                className="col-form-label"
-                              >
-                                Start Rent
-                              </label>
-                            </div>
-                            <div className="col-lg-9">
-                              <span> - </span>
-                              <span className="error-notif"></span>
-                            </div>
-                          </div>
-
-                          <div className="row">
-                            <div className="col-lg-3">
-                              <label
                                 htmlFor="inputFinishRent6"
                                 className="col-form-label"
                               >
-                                Finish Rent
+                                Status
                               </label>
                             </div>
                             <div className="col-lg-9">
-                              <span> - </span>
-                              <span className="error-notif"></span>
-                            </div>
-                          </div>
-
-                          <div className="row">
-                            <div className="col-lg-3">
-                              <label
-                                htmlFor="inputCreatedRent6"
-                                className="col-form-label"
+                              <select
+                                className="form-select form-control"
+                                aria-label="Default select example"
+                                name="status"
                               >
-                                Created Rent
-                              </label>
-                            </div>
-                            <div className="col-lg-9">
-                              <span> - </span>
-                              <span className="error-notif"></span>
-                            </div>
-                          </div>
-
-                          <div className="row">
-                            <div className="col-lg-3">
-                              <label
-                                htmlFor="inputUpdatedRent6"
-                                className="col-form-label"
-                              >
-                                Updated Rent
-                              </label>
-                            </div>
-                            <div className="col-lg-9">
-                              <span> - </span>
-                              <span className="error-notif"></span>
+                                <option>---Pilih----</option>
+                                <option
+                                  value="true"
+                                  onChange={(e) => setStatus(e.target.value)}
+                                >
+                                  Open Rental
+                                </option>
+                                <option
+                                  value="false"
+                                  onChange={(e) => setStatus(e.target.value)}
+                                >
+                                  Not Open Rental
+                                </option>
+                              </select>
                             </div>
                           </div>
+                          <button type="reset" className="btn-custom">
+                            Cancel
+                          </button>
+                          <button type="submit" className="btn-custom-save">
+                            Save
+                          </button>
                         </form>
                       </div>
-                      <button type="button" className="btn-custom">
-                        Cancel
-                      </button>
-                      <button type="button" className="btn-custom-save">
-                        Save
-                      </button>
                     </div>
                   </div>
                 </div>

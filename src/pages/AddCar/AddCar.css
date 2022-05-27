@@ -31,7 +31,8 @@ input[type="file"] {
   padding: 2%;
 }
 
-input {
+input,
+select {
   max-width: 560px;
 }
 
@@ -70,7 +71,7 @@ footer button {
   color: #0d28a6;
   font-size: 14px;
   font-weight: 700;
-  justify-content: end;
+  margin-right: 10px;
 }
 
 .btn-custom-save {

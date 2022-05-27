@@ -72,8 +72,8 @@ const ListCar = () => {
                 <div className="row">
                   {listData.map((item) => {
                     return (
-                      <div className="col-md-4">
-                        <div className="card" key={item.id}>
+                      <div className="col-md-4" key={item.id}>
+                        <div className="card">
                           <div className="card-body">
                             <h5 className="card-title">
                               <img
