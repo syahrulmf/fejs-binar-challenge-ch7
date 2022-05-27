@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ImageUpoad from "../../components/ImageUpload/ImageUpoad";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import Swal from "sweetalert2";
 import "./AddCar.css";
 
 const AddCar = () => {
@@ -38,7 +39,16 @@ const AddCar = () => {
       console.log(error);
     }
 
-    navigate("/listcar", alert("Data Berhasil Ditambah"));
+    navigate(
+      "/listcar",
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500,
+      })
+    );
   };
   return (
     <>
